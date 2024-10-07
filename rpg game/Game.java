@@ -1,7 +1,8 @@
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage; 
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.awt.event.*; 
 
 
@@ -10,6 +11,8 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 	
 	private BufferedImage back; 
 	private int key, x, y; 
+	private ArrayList <Characters> charList;
+	private String screen;
 
 
 
@@ -22,9 +25,23 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 		key =-1; 
 		x=0;
 		y=0;
-		
+		charList=setCharList();
+		for(Characters c: charList){
+			System.out.println(c);
+		}
+		screen="start";
 	
 	}
+	
+
+    public ArrayList <Characters> setCharList(){
+        ArrayList <Characters> temp = new ArrayList<>();
+		temp.add(new Tob(100,100));
+		temp.add(new Mud(100,100));
+		temp.add(new Lion(100,100));
+		temp.add(new Fish(100,100));
+		return temp;
+    }
 
 	
 	
@@ -62,13 +79,21 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 		
 		g2d.drawString("Hello!" , x, y);
 		
-		
+		drawScreens(g2d);
 	
 		twoDgraph.drawImage(back, null, 0, 0);
 
 	}
 
-	
+	private void drawScreens(Graphics g2d){
+		switch (screen) {
+			case "start":
+			for(Characters c: charList){
+				System.out.println(c);
+				c.drawChar(g2d);
+			}
+		}
+	}
 
 
 
