@@ -7,7 +7,7 @@ public class Main extends JFrame{
 	private static final int HEIGHT=1600;
 	
 	public Main () {
-		super("KeyListener Demo");
+		super("rpg game");
 		setSize(WIDTH, HEIGHT);
 		Game play = new Game();
 		((Component) play).setFocusable(true);
@@ -15,7 +15,7 @@ public class Main extends JFrame{
 		Color RoyalBlue = new Color(22,13,193);
 		
 		
-		setBackground(RoyalBlue);
+		setBackground(Color.white);
 		
 		
 		getContentPane().add(play);

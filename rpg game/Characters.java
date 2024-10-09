@@ -128,4 +128,5 @@ public class Characters {
         g2d.drawImage(pic.getImage(), x, y, w, h, null);
         
     }
+    // check for mouse collision 
 }

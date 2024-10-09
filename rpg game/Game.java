@@ -13,6 +13,7 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 	private int key, x, y; 
 	private ArrayList <Characters> charList;
 	private String screen;
+	private Characters player;
 
 
 
@@ -30,7 +31,7 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 			System.out.println(c);
 		}
 		screen="start";
-	
+		player=null;
 	}
 	
 
@@ -85,16 +86,28 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 
 	}
 
+public void drawStartScreen(Graphics g2d){
+	for(Characters c: charList){
+		System.out.println(c);
+		c.drawChar(g2d);
+	}
+}
+
 	private void drawScreens(Graphics g2d){
 		switch (screen) {
 			case "start":
-			for(Characters c: charList){
-				System.out.println(c);
-				c.drawChar(g2d);
-			}
+			drawStartScreen(g2d);
+			break;
+			case "selection":
+			drawSelectScreen(g2d);
+
 		}
 	}
 
+	public void drawSelectScreen(Graphics g2d){
+		player.drawChar(g2d);
+		g2d.drawString("you picked "+player.toString(), 200, 500);
+	}
 
 
 	//DO NOT DELETE
@@ -114,7 +127,10 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 		
 		key= e.getKeyCode();
 		System.out.println(key);
-		
+		if (key==32){
+			screen="selection";
+			player=charList.get(0);
+		}
 		
 		
 	
@@ -152,7 +168,10 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		// check to see if on start screen
+		// for loop to check through all main chars
+		// if mousecollision is true
+		// player = loop.get(i);
 	}
 
 
