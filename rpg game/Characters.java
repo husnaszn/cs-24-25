@@ -1,4 +1,6 @@
 import java.awt.Graphics;
+import java.awt.image.ImageObserver;
+
 import javax.swing.ImageIcon;
 
 public class Characters {
@@ -23,8 +25,9 @@ public class Characters {
     public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p){
         x=x1;
         y=y1;
-        width=w;
-        height =h;
+        w=width;
+        health=hea;       
+        h=height;
         speed = sp;
         dmg = dam;
         stam=st;
@@ -72,14 +75,6 @@ public class Characters {
         this.speed = speed;
     }
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public int getDmg() {
         return dmg;
     }
@@ -124,7 +119,17 @@ public class Characters {
         return "HAVEN'T SET TOSTRING YET";
     }
 
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+    
     public void drawChar(Graphics g2d){
+        // System.out.println("null");
         g2d.drawImage(pic.getImage(), x, y, w, h, null);
         
     }

@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.awt.event.*; 
+import javax.swing.ImageIcon;
+
 
 
 public class Game  extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener{
@@ -38,9 +40,9 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
     public ArrayList <Characters> setCharList(){
         ArrayList <Characters> temp = new ArrayList<>();
 		temp.add(new Tob(100,100));
-		temp.add(new Mud(100,100));
-		temp.add(new Lion(100,100));
-		temp.add(new Fish(100,100));
+		temp.add(new Mud(150,100));
+		temp.add(new Lion(200,100));
+		temp.add(new Fish(250,100));
 		return temp;
     }
 
@@ -76,9 +78,6 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 	
 		g2d.clearRect(0,0,getSize().width, getSize().height);
 	
-		g2d.setFont( new Font("Broadway", Font.BOLD, 50));
-		
-		g2d.drawString("Hello!" , x, y);
 		
 		drawScreens(g2d);
 	
@@ -88,8 +87,10 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 
 public void drawStartScreen(Graphics g2d){
 	for(Characters c: charList){
-		System.out.println(c);
+		// System.out.println("lalalalalala");
 		c.drawChar(g2d);
+		System.out.println(c.getPic());
+		// g2d.drawImage(c.getPic().getImage(), c.getX(), c.getX(), getFocusCycleRootAncestor());
 	}
 }
 
