@@ -1,12 +1,14 @@
 import java.awt.Graphics;
-import java.awt.image.ImageObserver;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
 public class Characters {
 
     private int x,y,w,h, speed, health, dmg, stam, dx, dy;
-    ImageIcon pic;
+    private ImageIcon pic;
+    private Tools tools;
+    private ArrayList <Tools> toolList;
 
     public Characters(){
         y=0;
@@ -21,7 +23,7 @@ public class Characters {
         dy=0;
         pic= new ImageIcon();
     }
-    
+
     public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p){
         x=x1;
         y=y1;
@@ -33,6 +35,44 @@ public class Characters {
         stam=st;
         pic=p;
         dx=0;
+
+    }
+    
+    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Tools tool){
+        x=x1;
+        y=y1;
+        w=width;
+        health=hea;       
+        h=height;
+        speed = sp;
+        dmg = dam;
+        stam=st;
+        pic=p;
+        dx=0;
+        tools = tool;
+    }
+
+    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Tools tool, ArrayList<Tools> list){
+        x=x1;
+        y=y1;
+        w=width;
+        health=hea;       
+        h=height;
+        speed = sp;
+        dmg = dam;
+        stam=st;
+        pic=p;
+        dx=0;
+        tools = tool;
+        toolList = list;
+    }
+
+    public Tools getTools(){
+        return tools;
+    }
+
+    public void setTools(ArrayList <Tools> list){
+        toolList = list;
     }
 
     public int getX() {
