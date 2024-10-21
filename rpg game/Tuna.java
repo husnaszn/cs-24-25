@@ -1,10 +1,12 @@
-public class Tuna extends Tools {
+import javax.swing.ImageIcon;
+
+public class Tuna extends Food {
     public Tuna(){
-        super(100,2,159);
+        super();
     }
 
     public Tuna(int x, int y){
-        super(100,2,159);
+        super(x,y,100,2,159, new ImageIcon("meow.png"));
     }
 
     public String toString(){

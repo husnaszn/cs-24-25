@@ -14,6 +14,7 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 	private BufferedImage back; 
 	private int key, x, y; 
 	private ArrayList <Characters> charList;
+	private ArrayList <Food> foodTool;
 	private String screen;
 	private Characters player;
 
@@ -34,6 +35,7 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 		}
 		screen="start";
 		player=null;
+		foodTool=new ArrayList<Food>();
 	}
 	
 
@@ -44,6 +46,7 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 		temp.add(new Lion(200,100));
 		temp.add(new Fish(250,100));
 		return temp;
+		
     }
 
 	
@@ -94,6 +97,13 @@ public void drawStartScreen(Graphics g2d){
 	}
 }
 
+public void drawGameScreen(Graphics g2d){
+	player.drawChar(g2d);
+	if (!foodTool.isEmpty()){
+		//loop draw all weapons
+	}
+}
+
 	private void drawScreens(Graphics g2d){
 		switch (screen) {
 			case "start":
@@ -101,7 +111,9 @@ public void drawStartScreen(Graphics g2d){
 			break;
 			case "selection":
 			drawSelectScreen(g2d);
-
+			break;
+			case "gameplay":
+			drawGameScreen(g2d);
 		}
 	}
 
@@ -118,7 +130,14 @@ public void drawStartScreen(Graphics g2d){
 		
 	}
 
+public void attack(){
+	if(player.getTools() instanceof Food){
+		foodTool.add(new Food(player.getX(),player.getY(),player.getTools().getDam(),player.getTools().getDps(),player.getTools().getDurability(), player.getTools().getPic()));
+	}
+	else{
 
+	}
+}
 
 
 //DO NOT DELETE
@@ -131,6 +150,10 @@ public void drawStartScreen(Graphics g2d){
 		if (key==32){
 			screen="selection";
 			player=charList.get(0);
+		}
+		else if (key==65){
+			screen= "gameplay";
+			attack();
 		}
 		
 		
