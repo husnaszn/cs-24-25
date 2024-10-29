@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
 public class Tools {
@@ -43,5 +44,12 @@ public class Tools {
     public ImageIcon getPic() {
         // TODO Auto-generated method stub
         return pic;
+    }
+
+    public void drawTool(Graphics g2d){
+        // System.out.println("null");
+        g2d.drawImage(pic.getImage(), x,x, null);
+        System.out.println("ughhh");
+        
     }
 }

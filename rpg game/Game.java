@@ -3,9 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.awt.event.*; 
-import javax.swing.ImageIcon;
-
+import java.awt.event.*;
+import java.util.Queue;
+import java.util.LinkedList;
 
 
 public class Game  extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener{
@@ -17,6 +17,8 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 	private ArrayList <Food> foodTool;
 	private String screen;
 	private Characters player;
+	// private Tools too;
+	private Queue <Enemy> enemies;
 
 
 
@@ -31,20 +33,29 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 		y=0;
 		charList=setCharList();
 		for(Characters c: charList){
-			System.out.println(c);
+			// System.out.println(c);
 		}
 		screen="start";
 		player=null;
+		// too= null;
 		foodTool=new ArrayList<Food>();
+		enemies = setEs();
+		System.out.println(enemies.size());
+	}
+	public Queue <Enemy> setEs(){
+		Queue <Enemy> temp = new LinkedList<>();
+		temp.add(new Fish(400,100));
+		temp.add(new Fish(400,100));
+		temp.add(new Fish(400,100));
+		return temp;
 	}
 	
-
     public ArrayList <Characters> setCharList(){
         ArrayList <Characters> temp = new ArrayList<>();
 		temp.add(new Tob(100,100));
 		temp.add(new Mud(150,100));
 		temp.add(new Lion(200,100));
-		temp.add(new Fish(250,100));
+		// temp.add(new Fish(250,100));
 		return temp;
 		
     }
@@ -92,7 +103,7 @@ public void drawStartScreen(Graphics g2d){
 	for(Characters c: charList){
 		// System.out.println("lalalalalala");
 		c.drawChar(g2d);
-		System.out.println(c.getPic());
+		// System.out.println(c.getPic());
 		// g2d.drawImage(c.getPic().getImage(), c.getX(), c.getX(), getFocusCycleRootAncestor());
 	}
 }
@@ -102,6 +113,11 @@ public void drawGameScreen(Graphics g2d){
 	if (!foodTool.isEmpty()){
 		//loop draw all weapons
 	}
+	else{
+
+	}
+	enemies.peek().drawChar(g2d);
+
 }
 
 	private void drawScreens(Graphics g2d){
@@ -119,6 +135,7 @@ public void drawGameScreen(Graphics g2d){
 
 	public void drawSelectScreen(Graphics g2d){
 		player.drawChar(g2d);
+		// too.drawTool(g2d);
 		g2d.drawString("you picked "+player.toString(), 200, 500);
 	}
 
@@ -131,12 +148,12 @@ public void drawGameScreen(Graphics g2d){
 	}
 
 public void attack(){
+
 	if(player.getTools() instanceof Food){
 		foodTool.add(new Food(player.getX(),player.getY(),player.getTools().getDam(),player.getTools().getDps(),player.getTools().getDurability(), player.getTools().getPic()));
 	}
-	else{
+	System.out.println("foodTool is: " + this.foodTool);
 
-	}
 }
 
 
@@ -150,10 +167,13 @@ public void attack(){
 		if (key==32){
 			screen="selection";
 			player=charList.get(0);
+
 		}
 		else if (key==65){
 			screen= "gameplay";
+			// too= foodTool.get(0);
 			attack();
+
 		}
 		
 		
@@ -196,6 +216,7 @@ public void attack(){
 		// for loop to check through all main chars
 		// if mousecollision is true
 		// player = loop.get(i);
+		
 	}
 
 
@@ -223,6 +244,7 @@ public void attack(){
 		System.out.println("you clicked at"+ arg0.getY());
 		x=arg0.getX();
 		y=arg0.getY();
+		enemies.remove();
 		
 	}
 
