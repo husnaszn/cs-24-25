@@ -1,18 +1,19 @@
-import javax.swing.ImageIcon;
 import java.util.ArrayList;
 
-public class Tob extends Playabl{
-    public Tob(){
+import javax.swing.ImageIcon;
+
+public class Pepper extends Playabl {
+    public Pepper(){
         super();
     }
 
-    public Tob(int x, int y){
+    public Pepper(int x, int y){
         super(x,y, 400,400,10,5,5,1, new ImageIcon("tobidle.gif"),new Tuna(x,y));
         super.getTools().setX(super.getX()+super.getW());
         super.setTools(setList());
     }
     public String toString(){
-        return "Tob"+super.getHealth();
+        return "Pepper"+super.getHealth();
 
     }
 
@@ -22,8 +23,5 @@ public class Tob extends Playabl{
         temp.add(new Tuna());
         temp.add(new Tuna());
         return temp;
-    }
 }
-
-//tobidle 3
-//tob eat tuna 2 sec
+}
