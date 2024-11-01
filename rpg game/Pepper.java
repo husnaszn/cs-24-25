@@ -8,7 +8,7 @@ public class Pepper extends Playabl {
     }
 
     public Pepper(int x, int y){
-        super(x,y, 400,400,10,5,5,1, new ImageIcon("tobidle.gif"),new Tuna(x,y));
+        super(x,y, 400,400,10,5,5,1, new ImageIcon("placeholdercat.gif"),new Tuna(x,y));
         super.getTools().setX(super.getX()+super.getW());
         super.setTools(setList());
     }
