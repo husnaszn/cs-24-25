@@ -15,6 +15,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private ArrayList<Food> foodTool;
 	private String screen;
 	private Characters player;
+	private Enemy enemy;
 	// private Tools too;
 	private Queue<Enemy> enemies;
 
@@ -36,6 +37,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		foodTool = new ArrayList<Food>();
 		enemies = setEs();
 		System.out.println(enemies.size());
+		enemy = null;
 	}
 
 	public Queue<Enemy> setEs() {
@@ -123,7 +125,15 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 				break;
 			case "gameplay":
 				drawGameScreen(g2d);
+				break;
+			case "gameover":
+				drawGameOverScreen(g2d);
+				break;
 		}
+	}
+
+	public void drawGameOverScreen(Graphics g2d) {
+		g2d.drawString("game over", 200, 200);
 	}
 
 	public void drawSelectScreen(Graphics g2d) {
@@ -175,7 +185,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 			} else if (key == 69) {
 				player.setPic(new ImageIcon("tobeattuna.gif"));
 
-				Enemy enemy = enemies.peek();
+				enemy = enemies.peek();
 
 				if (enemy != null) {
 					if (player.getX() >= enemy.getX()
@@ -185,6 +195,14 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 					}
 				}
 
+			} else if (key == 76) {
+				enemy = enemies.peek();
+
+				enemy.setPic(new ImageIcon("fishattack.gif"));
+				if (player.getX() >= enemy.getX()
+						&& player.getX() <= (enemy.getX() + enemy.getW())) {
+					screen = "gameover";
+				}
 			}
 
 		}
@@ -198,7 +216,10 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		if (key == 69) {
 			player.setPic(new ImageIcon("tobidle.gif"));
 		}
-
+		if (key == 76) {
+			enemy = enemies.peek();
+			enemy.setPic(new ImageIcon("fishidle.gif"));
+		}
 	}
 
 	@Override
