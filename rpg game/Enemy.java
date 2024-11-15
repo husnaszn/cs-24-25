@@ -7,8 +7,8 @@ public class Enemy extends Characters {
         super();
     }
 
-    public Enemy(int x, int y, int w, int h, int speed, int hea, int dam, int st, ImageIcon pic, Tools t){
-        super(x, y, w, h, speed, hea, dam, st, pic,t);
+    public Enemy(int x, int y, int dx, int dy, int w, int h, int speed, int hea, int dam, int st, ImageIcon pic, ImageIcon uset, ImageIcon uwalk, Tools t){
+        super(x, y, w, h, dx, dy, speed, hea, dam, st, pic,uset,uwalk,t);
     }
 
 }

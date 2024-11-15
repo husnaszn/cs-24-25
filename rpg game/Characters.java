@@ -1,4 +1,6 @@
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -6,7 +8,8 @@ import javax.swing.ImageIcon;
 public class Characters {
 
     private int x,y,w,h, speed, health, dmg, stam, dx, dy;
-    private ImageIcon pic;
+    private int key1;
+    private ImageIcon pic, uset, uwalk;
     private Tools tools;
     private ArrayList <Tools> toolList;
 
@@ -22,9 +25,12 @@ public class Characters {
         dx=0;
         dy=0;
         pic= new ImageIcon();
+        uset = new ImageIcon();
+        uwalk = new ImageIcon();
+
     }
 
-    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p){
+    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon uw){
         x=x1;
         y=y1;
         w=width;
@@ -34,11 +40,14 @@ public class Characters {
         dmg = dam;
         stam=st;
         pic=p;
-        dx=0;
+        uset = u;
+        uwalk = u;
+        dx=dx1;
+        dy=dy1;
 
     }
     
-    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Tools tool){
+    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon uw, Tools tool){
         x=x1;
         y=y1;
         w=width;
@@ -48,23 +57,19 @@ public class Characters {
         dmg = dam;
         stam=st;
         pic=p;
-        dx=0;
+        uset = u;
+        uwalk = u;
+        dx=dx1;
+        dy=dy1;
         tools = tool;
     }
 
-    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Tools tool, ArrayList<Tools> list){
-        x=x1;
-        y=y1;
-        w=width;
-        health=hea;       
-        h=height;
-        speed = sp;
-        dmg = dam;
-        stam=st;
-        pic=p;
-        dx=0;
-        tools = tool;
-        toolList = list;
+    public ImageIcon getUwalk() {
+        return uwalk;
+    }
+
+    public void setUwalk(ImageIcon uwalk) {
+        this.uwalk = uwalk;
     }
 
     public Tools getTools(){
@@ -131,6 +136,26 @@ public class Characters {
         this.stam = stam;
     }
 
+    public ImageIcon getUset() {
+        return uset;
+    }
+
+    public void setUset(ImageIcon uset) {
+        this.uset = uset;
+    }
+
+    public void setTools(Tools tools) {
+        this.tools = tools;
+    }
+
+    public ArrayList<Tools> getToolList() {
+        return toolList;
+    }
+
+    public void setToolList(ArrayList<Tools> toolList) {
+        this.toolList = toolList;
+    }
+
     public int getDx() {
         return dx;
     }
@@ -172,6 +197,28 @@ public class Characters {
         // System.out.println("null");
         g2d.drawImage(pic.getImage(), x, y, w, h, null);
         
+    }
+
+    public void moving(){
+        // key1=key;
+        // System.out.println(key1);
+        // System.out.println(getDx());
+        System.out.println(getX()+getW());
+        System.out.println(Toolkit.getDefaultToolkit().getScreenSize().width);
+        if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
+            setX(Toolkit.getDefaultToolkit().getScreenSize().width-(getW()));        }
+            System.out.println("crossing");
+        // if (key1==65){
+        //     setDx(-1);
+        //     // System.out.println("setting dx");
+        // } else if (key1 == 68){
+        //     setDx(1);
+        //     // System.out.println("setting dx");
+        // }else{
+        //     setDx(0);
+        
+       
+       
     }
     // check for mouse collision 
 }

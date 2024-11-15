@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Toolkit;
 import java.awt.event.*;
 
 public class Main extends JFrame{

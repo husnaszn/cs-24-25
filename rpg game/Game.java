@@ -97,6 +97,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 	public void drawGameScreen(Graphics g2d) {
 		player.drawChar(g2d);
+		player.moving();
 		// player.setDx(x);
 		// System.out.println(player.getX());
 		player.setX(player.getX() + player.getDx());
@@ -178,12 +179,15 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		}
 		if (screen == "gameplay") {
 			if (key == 65) {
-				player.setDx(1);
+				// player.moving(65);
+				player.setDx(-1);
 				System.out.println("moving");
 			} else if (key == 68) {
-				player.setDx(-1);
+				// player.moving(68);
+				player.setDx(1);
+
 			} else if (key == 69) {
-				player.setPic(new ImageIcon("tobeattuna.gif"));
+				player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobeattuna.gif"));
 
 				enemy = enemies.peek();
 
@@ -198,7 +202,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 			} else if (key == 76) {
 				enemy = enemies.peek();
 
-				enemy.setPic(new ImageIcon("fishattack.gif"));
+				enemy.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\fishattack.gif"));
 				if (player.getX() >= enemy.getX()
 						&& player.getX() <= (enemy.getX() + enemy.getW())) {
 					screen = "gameover";
@@ -212,13 +216,15 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	// DO NOT DELETE
 	@Override
 	public void keyReleased(KeyEvent e) {
-		player.setDx(0);
+		if (key== 65 || key ==68){
+			player.setDx(0);
+		}
 		if (key == 69) {
-			player.setPic(new ImageIcon("tobidle.gif"));
+			player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobidle.gif"));
 		}
 		if (key == 76) {
 			enemy = enemies.peek();
-			enemy.setPic(new ImageIcon("fishidle.gif"));
+			enemy.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\fishidle.gif"));
 		}
 	}
 
