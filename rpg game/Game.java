@@ -234,11 +234,15 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 			if (key == 65) {
 				// player.moving(65);
 				player.setDx(-1);
-				System.out.println("moving");
+				// System.out.println("moving");
+				player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobwalkl.gif"));
+				player.setW(160);
+
 			} else if (key == 68) {
 				// player.moving(68);
 				player.setDx(1);
-
+				player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobwalkr.gif"));
+				player.setW(160);
 			} else if (key == 69) {
 				player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobeattuna.gif"));
 
@@ -271,6 +275,9 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	public void keyReleased(KeyEvent e) {
 		if (key== 65 || key ==68){
 			player.setDx(0);
+			player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobidle.gif"));
+				player.setW(190);
+				
 		}
 		if (key == 69) {
 			player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobidle.gif"));

@@ -200,25 +200,12 @@ public class Characters {
     }
 
     public void moving(){
-        // key1=key;
-        // System.out.println(key1);
-        // System.out.println(getDx());
-        // System.out.println(getX()+getW());
-        // System.out.println(Toolkit.getDefaultToolkit().getScreenSize().width);
         if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
-            setX(Toolkit.getDefaultToolkit().getScreenSize().width-(getW()));        }
-            // System.out.println("crossing");
-        // if (key1==65){
-        //     setDx(-1);
-        //     // System.out.println("setting dx");
-        // } else if (key1 == 68){
-        //     setDx(1);
-        //     // System.out.println("setting dx");
-        // }else{
-        //     setDx(0);
-        
-       
-       
+            setX(Toolkit.getDefaultToolkit().getScreenSize().width-(getW())); 
+               }else if(getX()<=0){
+        setX(0);
+    }
+
     }
     // check for mouse collision 
 }
