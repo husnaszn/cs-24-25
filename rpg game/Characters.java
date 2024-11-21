@@ -203,11 +203,11 @@ public class Characters {
         // key1=key;
         // System.out.println(key1);
         // System.out.println(getDx());
-        System.out.println(getX()+getW());
-        System.out.println(Toolkit.getDefaultToolkit().getScreenSize().width);
+        // System.out.println(getX()+getW());
+        // System.out.println(Toolkit.getDefaultToolkit().getScreenSize().width);
         if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
             setX(Toolkit.getDefaultToolkit().getScreenSize().width-(getW()));        }
-            System.out.println("crossing");
+            // System.out.println("crossing");
         // if (key1==65){
         //     setDx(-1);
         //     // System.out.println("setting dx");

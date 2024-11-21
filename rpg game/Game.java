@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.awt.event.*;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.util.Scanner;
+import java.io.IOException;
 
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 
@@ -18,6 +23,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private Enemy enemy;
 	// private Tools too;
 	private Queue<Enemy> enemies;
+	private File saveFile;
 
 	public Game() {
 		new Thread(this).start();
@@ -38,13 +44,60 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		enemies = setEs();
 		System.out.println(enemies.size());
 		enemy = null;
+		saveFile = new File("saved_file2.0.txt");
+	}
+
+	public void createFile(){
+		try {
+			if(saveFile.createNewFile()){
+				System.out.println("successfully created file");
+			}else{
+				System.out.println("file already exists");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void readFile(){
+		Scanner sc;
+		try {
+			sc = new Scanner(saveFile);
+			while(sc.hasNext()){
+			System.out.println(sc.next());
+		}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void writeToFile(){
+		FileWriter myWriter;
+		try {
+			myWriter = new FileWriter(saveFile);
+		if(enemies.isEmpty()){
+			myWriter.write("win");
+		}else{
+			myWriter.write("u have " +enemies.size()+" enemies left");
+		}
+		myWriter.close();
+		System.out.println("successfully wrote to file");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
 	}
 
 	public Queue<Enemy> setEs() {
 		Queue<Enemy> temp = new LinkedList<>();
 		temp.add(new Fish(400, 100));
-		temp.add(new Fish(400, 100));
-		temp.add(new Fish(400, 100));
+		temp.add(new Fish(600, 100));
+		temp.add(new Fish(800, 100));
 		return temp;
 	}
 
