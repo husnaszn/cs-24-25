@@ -14,7 +14,6 @@ public class Tools {
         dps=dp;
     }
     public Tools(int x2, int y, int dam2, int dur, int dp, ImageIcon pic) {
-        //TODO Auto-generated constructor stub
     }
     public int getDam() {
         return dam;
@@ -38,11 +37,9 @@ public class Tools {
         this.dps = dps;
     }
     public void setX(int i) {
-        // TODO Auto-generated method stub
         x=i;
     }
     public ImageIcon getPic() {
-        // TODO Auto-generated method stub
         return pic;
     }
 

@@ -1,5 +1,5 @@
 import java.awt.Graphics;
-import java.awt.Image;
+// import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 public class Characters {
 
     private int x,y,w,h, speed, health, dmg, stam, dx, dy;
-    private int key1;
+    // private int key1;
     private ImageIcon pic, uset, uwalk;
     private Tools tools;
     private ArrayList <Tools> toolList;

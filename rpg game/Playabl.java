@@ -13,5 +13,8 @@ public class Playabl extends Characters {
         super(x, y, dx, dy, w, h, speed, hea, dam, st, pic,uset,uwalk,t);
     }
 
+    // walk right
+    // walk left
+
    
 }

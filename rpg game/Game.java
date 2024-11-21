@@ -24,6 +24,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	// private Tools too;
 	private Queue<Enemy> enemies;
 	private File saveFile;
+	private String words;
 
 	public Game() {
 		new Thread(this).start();
@@ -45,6 +46,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		System.out.println(enemies.size());
 		enemy = null;
 		saveFile = new File("saved_file2.0.txt");
+		words = "";
 	}
 
 	public void createFile(){
@@ -65,7 +67,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		try {
 			sc = new Scanner(saveFile);
 			while(sc.hasNext()){
-			System.out.println(sc.next());
+			words = words + " " +sc.next();
 		}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -79,9 +81,9 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		try {
 			myWriter = new FileWriter(saveFile);
 		if(enemies.isEmpty()){
-			myWriter.write("win");
+			myWriter.write("in your last run, you won");
 		}else{
-			myWriter.write("u have " +enemies.size()+" enemies left");
+			myWriter.write("in your pervious run, you had  " +enemies.size() + " enemies left!");
 		}
 		myWriter.close();
 		System.out.println("successfully wrote to file");
@@ -138,6 +140,8 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	}
 
 	public void drawStartScreen(Graphics g2d) {
+		g2d.drawString(words, 400, 400);
+
 		player.setDx(0);
 		for (Characters c : charList) {
 			// System.out.println("lalalalalala");
@@ -166,7 +170,6 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		}
 		// System.out.println(enemies.peek().getX());
 		// System.out.println(player.getX());
-
 	}
 
 	private void drawScreens(Graphics g2d) {

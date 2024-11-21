@@ -27,4 +27,4 @@ public class Tob extends Playabl{
 
 //tobidle 3
 //tob eat tuna 2 sec
-// tobwalk 4fps
+//tobwalk 4fps
