@@ -17,6 +17,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private BufferedImage back;
 	private int key, x, y;
 	private ArrayList<Characters> charList;
+	private ArrayList<Buttons> butList;
 	private ArrayList<Food> foodTool;
 	private String screen;
 	private Characters player;
@@ -25,7 +26,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private Queue<Enemy> enemies;
 	private File saveFile;
 	private String words;
-	// private Buttons ss
+	private Buttons testButton, test2, test3;
 
 	public Game() {
 		new Thread(this).start();
@@ -36,9 +37,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		x = 0;
 		y = 0;
 		charList = setCharList();
-		for (Characters c : charList) {
-			// System.out.println(c);
-		}
+		butList = setButList();						
 		screen = "start";
 		player = new Tob(100, 100);
 		// too= null;
@@ -48,6 +47,9 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		enemy = null;
 		saveFile = new File("saved_file2.0.txt");
 		words = "";
+		// testButton = new Buttons("test button", 400, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png"));
+		// test2 = new Buttons("test button", 600, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png"));
+		// test3 = new Buttons("test button", 800, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png"));
 	}
 
 	public void createFile(){
@@ -115,6 +117,14 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 	}
 
+	public ArrayList<Buttons> setButList(){
+		ArrayList<Buttons> temp = new ArrayList<>();
+		temp.add(new Buttons("test button 1", 400, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png")));
+		temp.add(new Buttons("test button 2", 600, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png")));
+		temp.add(new Buttons("test button 3", 800, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png")));
+		return temp;
+	}
+
 	public void run() {
 		try {
 			while (true) {
@@ -143,8 +153,11 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 	public void drawStartScreen(Graphics g2d) {
 		g2d.drawString(words, 400, 400);
-
 		player.setDx(0);
+		for (Buttons b: butList){
+			b.drawPart(g2d);
+		}
+		System.out.println(butList);
 		for (Characters c : charList) {
 			// System.out.println("lalalalalala");
 			c.drawChar(g2d);
