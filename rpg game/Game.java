@@ -238,16 +238,16 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 				// player.moving(65);
 				player.setDx(-1);
 				// System.out.println("moving");
-				player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobwalkl.gif"));
+				player.setPic(new ImageIcon("tobwalkl.gif"));
 				player.setW(160);
 
 			} else if (key == 68) {
 				// player.moving(68);
 				player.setDx(1);
-				player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobwalkr.gif"));
+				player.setPic(new ImageIcon("tobwalkr.gif"));
 				player.setW(160);
 			} else if (key == 69) {
-				player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobeattuna.gif"));
+				player.setPic(new ImageIcon("tobeattuna.gif"));
 
 				enemy = enemies.peek();
 
@@ -262,7 +262,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 			} else if (key == 76) {
 				enemy = enemies.peek();
 
-				enemy.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\fishattack.gif"));
+				enemy.setPic(new ImageIcon("fishattack.gif"));
 				if (player.getX() >= enemy.getX()
 						&& player.getX() <= (enemy.getX() + enemy.getW())) {
 					screen = "gameover";
@@ -278,16 +278,16 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	public void keyReleased(KeyEvent e) {
 		if (key== 65 || key ==68){
 			player.setDx(0);
-			player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobidle.gif"));
+			player.setPic(new ImageIcon("tobidle.gif"));
 				player.setW(190);
 				
 		}
 		if (key == 69) {
-			player.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\tobidle.gif"));
+			player.setPic(new ImageIcon("tobidle.gif"));
 		}
 		if (key == 76) {
 			enemy = enemies.peek();
-			enemy.setPic(new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\fishidle.gif"));
+			enemy.setPic(new ImageIcon("fishidle.gif"));
 		}
 	}
 
