@@ -8,9 +8,11 @@ public class Pepper extends Playabl {
     }
 
     public Pepper(int x, int y){
-        super("pepper", x,y, 400,400,190,270,5, y, y, 1, new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new Tuna(x, y));
+        super("PEPPER", x,y, 400,400,190,270,5, y, y, 1, new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new Tuna(x, y));
         super.getTools().setX(super.getX()+super.getW());
         super.setTools(setList());
+        super.setUdesc("meow grrr awwa");
+
     }
     public String toString(){
         return "Pepper"+super.getHealth();

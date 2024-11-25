@@ -49,7 +49,7 @@ public class Text extends Interface {
     }
 
     public void drawText(Graphics g2d){
-        g2d.setFont(new Font("Pixelify Sans", Font.PLAIN, getTextSize()));
+        g2d.setFont(new Font("VT323", Font.PLAIN, getTextSize()));
         g2d.setColor(getbColor());
         g2d.drawString(getBname(),getX(),getY());
     }

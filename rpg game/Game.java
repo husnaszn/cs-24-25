@@ -16,12 +16,12 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 	private BufferedImage back;
 	private int key, x, y, sk;
-	private ArrayList<Characters> charList;
+	private ArrayList<Playabl> charList;
 	private ArrayList<Buttons> butList;
 	private ArrayList<Text> ssText;
 	private ArrayList<Food> foodTool;
 	private String screen;
-	private Characters player;
+	private Playabl player;
 	private Enemy enemy;
 	// private Tools too;
 	private Queue<Enemy> enemies;
@@ -106,8 +106,8 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		return temp;
 	}
 
-	public ArrayList<Characters> setCharList() {
-		ArrayList<Characters> temp = new ArrayList<>();
+	public ArrayList<Playabl> setCharList() {
+		ArrayList<Playabl> temp = new ArrayList<>();
 		temp.add(new Tob(100, 100));
 		temp.add(new Pepper(300, 100));
 		temp.add(new Simm(500, 100));
@@ -118,9 +118,9 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 	public ArrayList<Text> setssText(){
 		ArrayList<Text> temp = new ArrayList<>();
-		temp.add(new Text("tob", 1,165,420, 30, Color.BLACK));
-		temp.add(new Text("pepper", 2,340,420, 30, Color.BLACK));
-		temp.add(new Text("sim", 3,565,420, 30, Color.BLACK));
+		temp.add(new Text("TOB", 1,165,420, 30, Color.BLACK));
+		temp.add(new Text("PEPPER", 2,340,420, 30, Color.BLACK));
+		temp.add(new Text("SIM", 3,565,420, 30, Color.BLACK));
 
 		return temp;
 	}
@@ -154,22 +154,26 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	public void drawStartScreen(Graphics g2d) {
 		g2d.drawString(words, 800, 400);
 		player.setDx(0);
+		
+		for (Playabl c : charList) {
+			c.drawChar(g2d);
+		}
 		for (Text t: ssText){
 			t.drawText(g2d);
 
 			if ( sk == t.getTextNum()){
 				t.setbColor(Color.pink);
+				for (Playabl c: charList){
+					if (c.getPlayerName()==t.getBname()){
+						player = c;
+						c.writeDesc(g2d);
+					}
+				}
 			}else if (sk != t.getTextNum()){
 				t.setbColor(Color.BLACK);
 			}
 			
-		}
-		for (Characters c : charList) {
-			// System.out.println("lalalalalala");
-			c.drawChar(g2d);
-			// System.out.println(c.getPic());
-			// g2d.drawImage(c.getPic().getImage(), c.getX(), c.getX(),
-			// getFocusCycleRootAncestor());
+			
 		}
 	}
 
@@ -249,6 +253,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 			
 			screen = "gameplay";
 			// too= foodTool.get(0);
+			player.setX(100);
 			attack();
 
 		}
