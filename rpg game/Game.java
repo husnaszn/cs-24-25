@@ -25,6 +25,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private Queue<Enemy> enemies;
 	private File saveFile;
 	private String words;
+	// private Buttons ss
 
 	public Game() {
 		new Thread(this).start();
@@ -107,8 +108,8 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	public ArrayList<Characters> setCharList() {
 		ArrayList<Characters> temp = new ArrayList<>();
 		temp.add(new Tob(100, 100));
-		temp.add(new Pepper(150, 100));
-		temp.add(new Simm(200, 100));
+		temp.add(new Pepper(300, 100));
+		temp.add(new Simm(500, 100));
 		// temp.add(new Fish(250,100));
 		return temp;
 
