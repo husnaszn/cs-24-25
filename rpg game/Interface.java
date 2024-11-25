@@ -18,6 +18,18 @@ public class Interface {
         bname = "";
     }
 
+    public Interface(String bn, int x1, int y1){
+        x =x1;
+        y = y1;
+        // w = width;
+        // h = height;
+        // // pic = p;
+        // picpressed = pp;
+        // picselected = ps;
+        bname = bn;
+
+    }
+    
     public Interface(String bn, int x1, int y1, int width, int height, ImageIcon p){
         x =x1;
         y = y1;

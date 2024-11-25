@@ -15,9 +15,10 @@ import java.io.IOException;
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 
 	private BufferedImage back;
-	private int key, x, y;
+	private int key, x, y, sk;
 	private ArrayList<Characters> charList;
 	private ArrayList<Buttons> butList;
+	private ArrayList<Text> ssText;
 	private ArrayList<Food> foodTool;
 	private String screen;
 	private Characters player;
@@ -26,30 +27,28 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private Queue<Enemy> enemies;
 	private File saveFile;
 	private String words;
-	private Buttons testButton, test2, test3;
+	// private Buttons testButton, test2, test3;
 
 	public Game() {
 		new Thread(this).start();
 		this.addKeyListener(this);
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+		// butList = setButList();						
+		// too= null;
 		key = -1;
+		sk = 1;
 		x = 0;
 		y = 0;
-		charList = setCharList();
-		butList = setButList();						
 		screen = "start";
 		player = new Tob(100, 100);
-		// too= null;
-		foodTool = new ArrayList<Food>();
 		enemies = setEs();
-		System.out.println(enemies.size());
-		enemy = null;
+		foodTool = new ArrayList<Food>();
+		ssText= setssText();
+		charList = setCharList();
 		saveFile = new File("saved_file2.0.txt");
 		words = "";
-		// testButton = new Buttons("test button", 400, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png"));
-		// test2 = new Buttons("test button", 600, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png"));
-		// test3 = new Buttons("test button", 800, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png"));
+		
 	}
 
 	public void createFile(){
@@ -117,11 +116,12 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 	}
 
-	public ArrayList<Buttons> setButList(){
-		ArrayList<Buttons> temp = new ArrayList<>();
-		temp.add(new Buttons("test button 1", 400, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png")));
-		temp.add(new Buttons("test button 2", 600, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png")));
-		temp.add(new Buttons("test button 3", 800, 400, 160, 60, new ImageIcon("tobbutton.png"), new ImageIcon("tobbutton.png"), new ImageIcon("tobbuttons.png"), new ImageIcon("tobbuttonp.png")));
+	public ArrayList<Text> setssText(){
+		ArrayList<Text> temp = new ArrayList<>();
+		temp.add(new Text("tob", 1,165,420, 30, Color.BLACK));
+		temp.add(new Text("pepper", 2,340,420, 30, Color.BLACK));
+		temp.add(new Text("sim", 3,565,420, 30, Color.BLACK));
+
 		return temp;
 	}
 
@@ -152,12 +152,18 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	}
 
 	public void drawStartScreen(Graphics g2d) {
-		g2d.drawString(words, 400, 400);
+		g2d.drawString(words, 800, 400);
 		player.setDx(0);
-		for (Buttons b: butList){
-			b.drawPart(g2d);
+		for (Text t: ssText){
+			t.drawText(g2d);
+
+			if ( sk == t.getTextNum()){
+				t.setbColor(Color.pink);
+			}else if (sk != t.getTextNum()){
+				t.setbColor(Color.BLACK);
+			}
+			
 		}
-		System.out.println(butList);
 		for (Characters c : charList) {
 			// System.out.println("lalalalalala");
 			c.drawChar(g2d);
@@ -248,6 +254,21 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 			attack();
 
 		}
+
+		if (screen == "start"){
+			if(key==65){
+				sk--;
+			}else if (key==68){
+				sk++;
+			}
+
+			if (sk <=1){
+				sk=1;
+			}else if(sk>=3){
+				sk=3;
+			}
+		}
+
 		if (screen == "gameplay") {
 			if (key == 65) {
 				// moving left
@@ -291,9 +312,11 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if (key== 65 || key ==68){
-			player.setDx(0);
-			player.setPic(player.getUidle());
+			if (screen == "gameplay"){
+				player.setDx(0);
+				player.setPic(player.getUidle());
 				player.setW(190);
+			}
 				
 		}
 		if (key == 69) {
