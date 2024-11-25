@@ -9,10 +9,10 @@ public class Characters {
 
     private int x,y,w,h, speed, health, dmg, stam, dx, dy;
     // private int key1;
-    private ImageIcon pic, uset, uwalk;
+    private ImageIcon pic, uset, uwalkl, uwalkr, uidle;
     private Tools tools;
     private ArrayList <Tools> toolList;
-
+    
     public Characters(){
         y=0;
         x=0;
@@ -26,11 +26,13 @@ public class Characters {
         dy=0;
         pic= new ImageIcon();
         uset = new ImageIcon();
-        uwalk = new ImageIcon();
+        uwalkl = new ImageIcon();
+        uwalkr = new ImageIcon();
+        uidle = new ImageIcon();
 
     }
 
-    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon uw){
+    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon uwl, ImageIcon uwr){
         x=x1;
         y=y1;
         w=width;
@@ -41,13 +43,14 @@ public class Characters {
         stam=st;
         pic=p;
         uset = u;
-        uwalk = u;
+        uwalkl = uwl;
+        uwalkr = uwr;
         dx=dx1;
         dy=dy1;
 
     }
     
-    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon uw, Tools tool){
+    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon ui, ImageIcon uwl, ImageIcon uwr, Tools tool){
         x=x1;
         y=y1;
         w=width;
@@ -58,22 +61,41 @@ public class Characters {
         stam=st;
         pic=p;
         uset = u;
-        uwalk = u;
+        uwalkl = uwl;
+        uwalkr = uwr;
+        uidle = ui;
         dx=dx1;
         dy=dy1;
         tools = tool;
     }
 
-    public ImageIcon getUwalk() {
-        return uwalk;
+
+    public ImageIcon getUidle() {
+        return uidle;
     }
 
-    public void setUwalk(ImageIcon uwalk) {
-        this.uwalk = uwalk;
+    public void setUidle(ImageIcon uidle) {
+        this.uidle = uidle;
     }
 
     public Tools getTools(){
         return tools;
+    }
+
+    public ImageIcon getUwalkl() {
+        return uwalkl;
+    }
+
+    public void setUwalkl(ImageIcon uwalkl) {
+        this.uwalkl = uwalkl;
+    }
+
+    public ImageIcon getUwalkr() {
+        return uwalkr;
+    }
+
+    public void setUwalkr(ImageIcon uwalkr) {
+        this.uwalkr = uwalkr;
     }
 
     public void setTools(ArrayList <Tools> list){

@@ -64,6 +64,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 	public void readFile(){
 		Scanner sc;
+		// check out hasnextint
 		try {
 			sc = new Scanner(saveFile);
 			while(sc.hasNext()){
@@ -235,16 +236,15 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		}
 		if (screen == "gameplay") {
 			if (key == 65) {
-				// player.moving(65);
+				// moving left
 				player.setDx(-1);
-				// System.out.println("moving");
-				player.setPic(new ImageIcon("tobwalkl.gif"));
+				player.setPic(player.getUwalkl());
 				player.setW(160);
 
 			} else if (key == 68) {
-				// player.moving(68);
+				// moving right
 				player.setDx(1);
-				player.setPic(new ImageIcon("tobwalkr.gif"));
+				player.setPic(player.getUwalkr());
 				player.setW(160);
 			} else if (key == 69) {
 				player.setPic(new ImageIcon("tobeattuna.gif"));
@@ -278,12 +278,12 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	public void keyReleased(KeyEvent e) {
 		if (key== 65 || key ==68){
 			player.setDx(0);
-			player.setPic(new ImageIcon("tobidle.gif"));
+			player.setPic(player.getUidle());
 				player.setW(190);
 				
 		}
 		if (key == 69) {
-			player.setPic(new ImageIcon("tobidle.gif"));
+			player.setPic(player.getUidle());
 		}
 		if (key == 76) {
 			enemy = enemies.peek();

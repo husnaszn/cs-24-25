@@ -8,7 +8,7 @@ public class Lion extends Characters{
 
     public Lion(int x, int y){
 
-        super(x,y, 50,50,10,5,5,1, y, y, new ImageIcon("lion.png"), new ImageIcon("lion.png"), new ImageIcon("lion.png"), new Tuna(x,y));
+        super(x,y, 50,50,10,5,5,1, y, y, new ImageIcon("lion.png"), new ImageIcon("lion.png"), new ImageIcon("lion.png"),new ImageIcon("lion.png"),new ImageIcon("lion.png"), new Tuna(x,y));
         super.getTools().setX(super.getX()+super.getW()); 
         super.setTools(setList());
     }
