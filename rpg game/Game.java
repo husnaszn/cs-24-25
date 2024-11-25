@@ -244,11 +244,9 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 		key = e.getKeyCode();
 		System.out.println(key);
+		
 		if (key == 32) {
-			screen = "selection";
-			player = charList.get(0);
-
-		} else if (key == 81) {
+			
 			screen = "gameplay";
 			// too= foodTool.get(0);
 			attack();

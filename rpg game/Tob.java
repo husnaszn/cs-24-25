@@ -7,7 +7,7 @@ public class Tob extends Playabl{
     }
 
     public Tob(int x, int y){
-        super(x,y, 0,0,190,270,0, 0, 0,1, new ImageIcon("tobidle.gif"),new ImageIcon("tobidle.gif"),new ImageIcon("tobidle.gif"),new ImageIcon("tobwalkl.gif"),new ImageIcon("tobwalkr.gif"),new Tuna(x,y));
+        super("tob", x,y, 0,0,190,270,0, 0, 0,1, new ImageIcon("tobidle.gif"),new ImageIcon("tobidle.gif"),new ImageIcon("tobidle.gif"),new ImageIcon("tobwalkl.gif"),new ImageIcon("tobwalkr.gif"),new Tuna(x,y));
         super.getTools().setX(super.getX()+super.getW());
         super.setTools(setList());
     }

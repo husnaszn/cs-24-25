@@ -7,7 +7,7 @@ public class Simm extends Playabl{
     }
 
     public Simm(int x, int y){
-        super(x,y, 0,0,190,270,5, y, y, 1, new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new Tuna(x, y));
+        super("sim", x,y, 0,0,190,270,5, y, y, 1, new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new Tuna(x, y));
         super.getTools().setX(super.getX()+super.getW());
         super.setTools(setList());
     }
