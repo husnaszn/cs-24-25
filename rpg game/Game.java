@@ -27,6 +27,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private Queue<Enemy> enemies;
 	private File saveFile;
 	private String words;
+	private Backgrounds bg;
 	// private Tools too;
 	// private Buttons testButton, test2, test3;
 	
@@ -51,7 +52,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		charList = setCharList();
 		saveFile = new File("saved_file2.0.txt");
 		words = "";
-		
+		bg = new Backgrounds("bg", -400, 400, 0, 0, 2840, 1920, new ImageIcon("testbg.png"));
 	}
 
 	public void createFile(){
@@ -181,13 +182,11 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	}
 
 	public void drawGameScreen(Graphics g2d) {
+		bg.drawPart(g2d);
+		bg.move(player);
 		player.drawChar(g2d);
-		player.moving();
-		// player.setDx(x);
-		// System.out.println(player.getX());
-		player.setX(player.getX() + player.getDx());
-		// System.out.println("dx:" +player.getDx());
-		// System.out.println("new " + player.getX());
+		player.moving(bg);
+		
 		if (!foodTool.isEmpty()) {
 			// loop draw all weapons
 		} else {
@@ -196,8 +195,6 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		if (enemies.peek() != null) {
 			enemies.peek().drawChar(g2d);
 		}
-		// System.out.println(enemies.peek().getX());
-		// System.out.println(player.getX());
 	}
 
 	private void drawScreens(Graphics g2d) {
@@ -280,12 +277,14 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 			if (key == 65) {
 				// moving left
 				player.setDx(-1);
+				bg.setDx(1);
 				player.setPic(player.getUwalkl());
 				player.setW(160);
 
 			} else if (key == 68) {
 				// moving right
 				player.setDx(1);
+				bg.setDx(-1);
 				player.setPic(player.getUwalkr());
 				player.setW(160);
 			} else if (key == 69) {
@@ -321,6 +320,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		if (key== 65 || key ==68){
 			if (screen == "gameplay"){
 				player.setDx(0);
+				bg.setDx(0);
 				player.setPic(player.getUidle());
 				player.setW(190);
 			}

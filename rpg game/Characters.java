@@ -232,13 +232,6 @@ public class Characters {
         
     }
 
-    public void moving(){
-        if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
-            setX(Toolkit.getDefaultToolkit().getScreenSize().width-(getW())); 
-               }else if(getX()<=0){
-        setX(0);
-    }
-
-    }
+    
     // check for mouse collision 
 }

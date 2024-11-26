@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.Font;
 
 
@@ -11,10 +12,14 @@ import javax.swing.ImageIcon;
 public class Playabl extends Characters {
 
     private String playerName, udesc;
+    private Backgrounds blah;
+    private boolean moving;
 
     public Playabl(){
         super();
         udesc = "";
+        blah = new Backgrounds();
+        moving = false;
     }
 
     public Playabl(int x, int y, int dx, int dy, int w, int mhea, int h, int speed, int hea, int dam, int st, ImageIcon pic, ImageIcon uset, ImageIcon uidle, ImageIcon uwalkl, ImageIcon uwalkr, Tools t){
@@ -62,8 +67,21 @@ public class Playabl extends Characters {
         g2d.drawString("STAMINA: " +getStam(), 800, 244);
     }
 
-    // walk right
-    // walk left
+    public void moving(Backgrounds buh){
+        blah = buh;
+        
+       
+
+        if (blah.isMoving()== false){
+            setX(getX()+getDx()); 
+            if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
+            setX(Toolkit.getDefaultToolkit().getScreenSize().width-(getW())); 
+               }else if(getX()<=0){
+        setX(0);
+        }
+    }
+
+    }
 
    
 }
