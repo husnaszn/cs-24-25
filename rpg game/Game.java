@@ -256,7 +256,8 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 			
 			screen = "gameplay";
 			// too= foodTool.get(0);
-			player.setX(100);
+			player.setX((Toolkit.getDefaultToolkit().getScreenSize().width/2)-(player.getW()/2));
+			player.setY((Toolkit.getDefaultToolkit().getScreenSize().height/2)-(player.getH()/2));
 			attack();
 
 		}
