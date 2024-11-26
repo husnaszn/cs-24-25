@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.IOException;
+import java.text.DecimalFormat; 
 
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 
@@ -23,17 +24,19 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private String screen;
 	private Playabl player;
 	private Enemy enemy;
-	// private Tools too;
 	private Queue<Enemy> enemies;
 	private File saveFile;
 	private String words;
+	// private Tools too;
 	// private Buttons testButton, test2, test3;
-
+	
 	public Game() {
 		new Thread(this).start();
 		this.addKeyListener(this);
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+		// 1470
+		// 956
 		// butList = setButList();						
 		// too= null;
 		key = -1;
@@ -109,7 +112,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	public ArrayList<Playabl> setCharList() {
 		ArrayList<Playabl> temp = new ArrayList<>();
 		temp.add(new Tob(100, 100));
-		temp.add(new Pepper(300, 100));
+		temp.add(new Lada(300, 100));
 		temp.add(new Simm(500, 100));
 		// temp.add(new Fish(250,100));
 		return temp;
@@ -119,7 +122,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	public ArrayList<Text> setssText(){
 		ArrayList<Text> temp = new ArrayList<>();
 		temp.add(new Text("TOB", 1,165,420, 30, Color.BLACK));
-		temp.add(new Text("PEPPER", 2,340,420, 30, Color.BLACK));
+		temp.add(new Text("LADA", 2,340,420, 30, Color.BLACK));
 		temp.add(new Text("SIM", 3,565,420, 30, Color.BLACK));
 
 		return temp;

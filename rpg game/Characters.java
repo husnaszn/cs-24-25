@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 
 public class Characters {
 
-    private int x,y,w,h, speed, health, dmg, stam, dx, dy;
+    private int x,y,w,h, speed, maxHealth, health, dmg, stam, dx, dy;
     // private int key1;
     private ImageIcon pic, uset, uwalkl, uwalkr, uidle;
     private Tools tools;
@@ -20,6 +20,7 @@ public class Characters {
         h=0;
         speed=0;
         health=0;
+        maxHealth=0;
         stam=0;
         dmg=0;
         dx=0;
@@ -32,12 +33,13 @@ public class Characters {
 
     }
 
-    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon uwl, ImageIcon uwr){
+    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int mhea, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon uwl, ImageIcon uwr){
         x=x1;
         y=y1;
         w=width;
-        health=hea;       
         h=height;
+        maxHealth = mhea;
+        health=hea;       
         speed = sp;
         dmg = dam;
         stam=st;
@@ -50,12 +52,13 @@ public class Characters {
 
     }
     
-    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon ui, ImageIcon uwl, ImageIcon uwr, Tools tool){
+    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int mhea, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon ui, ImageIcon uwl, ImageIcon uwr, Tools tool){
         x=x1;
         y=y1;
         w=width;
-        health=hea;       
         h=height;
+        maxHealth = mhea;
+        health=hea;       
         speed = sp;
         dmg = dam;
         stam=st;
@@ -69,6 +72,14 @@ public class Characters {
         tools = tool;
     }
 
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
 
     public ImageIcon getUidle() {
         return uidle;
