@@ -50,7 +50,11 @@ public class Backgrounds extends Interface{
 
     public void move(Playabl pla){
          player = pla;
-       setX(getX()+dx);
+
+        if (player.isMoving()==false){
+             setX(getX()+dx); 
+             moving =true;           
+        }
 
        if(getX()+getW()<=Toolkit.getDefaultToolkit().getScreenSize().width){
             setX(Toolkit.getDefaultToolkit().getScreenSize().width-getW());
@@ -62,7 +66,6 @@ public class Backgrounds extends Interface{
             moving = true;
         }
 
-        System.out.println(moving);
     }
 
 }

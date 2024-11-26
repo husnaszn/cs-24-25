@@ -67,21 +67,33 @@ public class Playabl extends Characters {
         g2d.drawString("STAMINA: " +getStam(), 800, 244);
     }
 
+    
+    public boolean isMoving() {
+        return moving;
+    }
+    
+    public void setMoving(boolean moving) {
+        this.moving = moving;
+    }
+    
     public void moving(Backgrounds buh){
         blah = buh;
-        
-       
 
-        if (blah.isMoving()== false){
+    if (blah.isMoving()== false){
             setX(getX()+getDx()); 
-            if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
+        if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
             setX(Toolkit.getDefaultToolkit().getScreenSize().width-(getW())); 
-               }else if(getX()<=0){
-        setX(0);
+        }else if(getX()<=0){
+            setX(0);        
+        }else if(getX()!=(Toolkit.getDefaultToolkit().getScreenSize().width/2)-(getW()/2)){
+            moving =true;
+        }else if(getX()==(Toolkit.getDefaultToolkit().getScreenSize().width/2)-(getW()/2)){
+            moving = false;
         }
+
+        System.out.println(moving);
     }
 
     }
-
-   
+    
 }
