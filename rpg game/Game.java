@@ -52,7 +52,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		charList = setCharList();
 		saveFile = new File("saved_file2.0.txt");
 		words = "";
-		bg = new Backgrounds("bg", -400, 400, 0, 0, 2840, 1920, new ImageIcon("testbg.png"));
+		bg = new Backgrounds("bg", -400, -350, 0, 0, 2840, 1920, new ImageIcon("testbg.png"));
 	}
 
 	public void createFile(){
