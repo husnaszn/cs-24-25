@@ -1,15 +1,12 @@
 import java.awt.Graphics;
-// import java.awt.Image;
-import java.awt.Toolkit;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 
 public class Characters {
 
     private int x,y,w,h, speed, maxHealth, health, dmg, stam, dx, dy;
     // private int key1;
-    private ImageIcon pic, uset, uwalkl, uwalkr, uidle;
+    private ImageIcon pic, uset, uwalkl, uwalkr, uwalkd, uwalku, uidle;
     private Tools tools;
     private ArrayList <Tools> toolList;
     
@@ -29,6 +26,8 @@ public class Characters {
         uset = new ImageIcon();
         uwalkl = new ImageIcon();
         uwalkr = new ImageIcon();
+        uwalkd = new ImageIcon();
+        uwalku = new ImageIcon();
         uidle = new ImageIcon();
 
     }
@@ -66,6 +65,28 @@ public class Characters {
         uset = u;
         uwalkl = uwl;
         uwalkr = uwr;
+        uidle = ui;
+        dx=dx1;
+        dy=dy1;
+        tools = tool;
+    }
+  
+    public Characters(int x1, int y1, int dx1, int dy1, int width, int height, int sp, int mhea, int hea, int dam, int st, ImageIcon p, ImageIcon u, ImageIcon ui, ImageIcon uwl, ImageIcon uwr, ImageIcon uwd, ImageIcon uwu, Tools tool){
+        x=x1;
+        y=y1;
+        w=width;
+        h=height;
+        maxHealth = mhea;
+        health=hea;       
+        speed = sp;
+        dmg = dam;
+        stam=st;
+        pic=p;
+        uset = u;
+        uwalkl = uwl;
+        uwalkr = uwr;
+        uwalkd = uwd;
+        uwalku =uwu;
         uidle = ui;
         dx=dx1;
         dy=dy1;
@@ -217,6 +238,22 @@ public class Characters {
         return "HAVEN'T SET TOSTRING YET";
     }
 
+
+    public ImageIcon getUwalkd() {
+        return uwalkd;
+    }
+
+    public void setUwalkd(ImageIcon uwalkd) {
+        this.uwalkd = uwalkd;
+    }
+
+    public ImageIcon getUwalku() {
+        return uwalku;
+    }
+
+    public void setUwalku(ImageIcon uwalku) {
+        this.uwalku = uwalku;
+    }
 
     public int getHealth() {
         return health;

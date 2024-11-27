@@ -185,7 +185,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		bg.drawPart(g2d);
 		bg.move(player);
 		player.drawChar(g2d);
-		player.moving(bg);
+		player.move(bg);
 		
 		if (!foodTool.isEmpty()) {
 			// loop draw all weapons
@@ -288,8 +288,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 				player.setPic(player.getUwalkr());
 				player.setW(160);
 			} else if (key == 69) {
-				player.setPic(new ImageIcon("tobeattuna.gif"));
-
+				player.setPic(player.getUset());
 				enemy = enemies.peek();
 
 				if (enemy != null) {
@@ -300,14 +299,20 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 					}
 				}
 
-			} else if (key == 76) {
-				enemy = enemies.peek();
+			// } else if (key == 76) {
+			// 	enemy = enemies.peek();
 
-				enemy.setPic(new ImageIcon("fishattack.gif"));
-				if (player.getX() >= enemy.getX()
-						&& player.getX() <= (enemy.getX() + enemy.getW())) {
-					screen = "gameover";
-				}
+			// 	enemy.setPic(new ImageIcon("fishattack.gif"));
+			// 	if (player.getX() >= enemy.getX()
+			// 			&& player.getX() <= (enemy.getX() + enemy.getW())) {
+			// 		screen = "gameover";
+			// 	}
+			} else if (key == 87) {
+				player.setPic(player.getUwalku());
+				player.setDy(-1);
+			} else if (key == 83){
+				player.setPic(player.getUwalkd());
+				player.setDy(1);
 			}
 
 		}
@@ -317,9 +322,10 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	// DO NOT DELETE
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (key== 65 || key ==68){
+		if (key== 65 || key ==68 || key == 87 || key == 83){
 			if (screen == "gameplay"){
 				player.setDx(0);
+				player.setDy(0);
 				bg.setDx(0);
 				player.setPic(player.getUidle());
 				player.setW(190);

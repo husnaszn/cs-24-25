@@ -1,11 +1,10 @@
 import java.awt.Toolkit;
-
 import javax.swing.ImageIcon;
 
 public class Backgrounds extends Interface{
 
     private int dx, dy;
-    private boolean moving;
+    private boolean movingw, movingh;
     private Playabl player;
 
     public Backgrounds(){
@@ -13,7 +12,8 @@ public class Backgrounds extends Interface{
         dx= 0;
         dy = 0;
         player = new Playabl();
-        moving = false;
+        movingw = false;
+        movingh = false;
     
     }
 
@@ -24,12 +24,12 @@ public class Backgrounds extends Interface{
         
     }
 
-    public boolean isMoving() {
-        return moving;
+    public boolean isMovingw() {
+        return movingw;
     }
 
-    public void setMoving(boolean moving) {
-        this.moving = moving;
+    public void setMovingw(boolean moving) {
+        this.movingw = moving;
     }
 
     public int getDx() {
@@ -51,19 +51,19 @@ public class Backgrounds extends Interface{
     public void move(Playabl pla){
          player = pla;
 
-        if (player.isMoving()==false){
+        if (player.isMovingw()==false){
              setX(getX()+dx); 
-             moving =true;           
+             movingw =true;           
         }
 
        if(getX()+getW()<=Toolkit.getDefaultToolkit().getScreenSize().width){
             setX(Toolkit.getDefaultToolkit().getScreenSize().width-getW());
-            moving = false;
+            movingw = false;
         }else if(getX()>=0){
             setX(0);
-            moving=false;
+            movingw=false;
         } else{
-            moving = true;
+            movingw = true;
         }
 
     }

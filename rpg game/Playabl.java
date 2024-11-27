@@ -1,10 +1,7 @@
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.Font;
-
-
+import java.awt.Graphics;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 // playable characters - tob, sim, pepper
@@ -13,13 +10,13 @@ public class Playabl extends Characters {
 
     private String playerName, udesc;
     private Backgrounds blah;
-    private boolean moving;
+    private boolean movingw;
 
     public Playabl(){
         super();
         udesc = "";
         blah = new Backgrounds();
-        moving = false;
+        movingw = false;
     }
 
     public Playabl(int x, int y, int dx, int dy, int w, int mhea, int h, int speed, int hea, int dam, int st, ImageIcon pic, ImageIcon uset, ImageIcon uidle, ImageIcon uwalkl, ImageIcon uwalkr, Tools t){
@@ -29,6 +26,11 @@ public class Playabl extends Characters {
     
     public Playabl(String pn, int x, int y, int dx, int dy, int w, int h, int speed, int mhea, int hea, int dam, int st, ImageIcon pic, ImageIcon uset, ImageIcon uidle, ImageIcon uwalkl, ImageIcon uwalkr, Tools t){
         super(x, y, dx, dy, w, h, speed, mhea, hea, dam, st, pic,uset, uidle,uwalkl, uwalkr,t);
+        playerName = pn;
+    }
+    
+    public Playabl(String pn, int x, int y, int dx, int dy, int w, int h, int speed, int mhea, int hea, int dam, int st, ImageIcon pic, ImageIcon uset, ImageIcon uidle, ImageIcon uwalkl, ImageIcon uwalkr, ImageIcon uwalkf, ImageIcon uwalkb, Tools t){
+        super(x, y, dx, dy, w, h, speed, mhea, hea, dam, st, pic,uset, uidle,uwalkl, uwalkr, uwalkf, uwalkb, t);
         playerName = pn;
     }
     
@@ -68,30 +70,31 @@ public class Playabl extends Characters {
     }
 
     
-    public boolean isMoving() {
-        return moving;
+    public boolean isMovingw() {
+        return movingw;
     }
     
-    public void setMoving(boolean moving) {
-        this.moving = moving;
+    public void setMovingw(boolean moving) {
+        this.movingw = moving;
     }
     
-    public void moving(Backgrounds buh){
+    public void move(Backgrounds buh){
         blah = buh;
-
-    if (blah.isMoving()== false){
-            setX(getX()+getDx()); 
+        
+        setY(getY()+getDy());
+    if (blah.isMovingw()== false){
+            setX(getX()+getDx());
         if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
             setX(Toolkit.getDefaultToolkit().getScreenSize().width-(getW())); 
         }else if(getX()<=0){
             setX(0);        
         }else if(getX()!=(Toolkit.getDefaultToolkit().getScreenSize().width/2)-(getW()/2)){
-            moving =true;
+            movingw =true;
         }else if(getX()==(Toolkit.getDefaultToolkit().getScreenSize().width/2)-(getW()/2)){
-            moving = false;
+            movingw = false;
         }
 
-        System.out.println(moving);
+        System.out.println(movingw);
     }
 
     }
