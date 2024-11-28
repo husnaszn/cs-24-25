@@ -12,8 +12,8 @@ public class Backgrounds extends Interface{
         dx= 0;
         dy = 0;
         player = new Playabl();
-        movingw = false;
-        movingh = false;
+        movingw = true;
+        movingh = true;
     
     }
 
@@ -51,6 +51,19 @@ public class Backgrounds extends Interface{
     public void move(Playabl pla){
          player = pla;
 
+         setY(getY()+getDy());
+        if(getY()+getH()<=Toolkit.getDefaultToolkit().getScreenSize().height){
+            setY(Toolkit.getDefaultToolkit().getScreenSize().height-getH());
+            movingh =false;
+        }else if (getY()>=0){
+            setY(0);
+            movingh = false;
+        } else {
+            movingh = true;
+        }
+
+
+         // horizontal movement
         if (player.isMovingw()==false){
              setX(getX()+dx); 
              movingw =true;           
@@ -66,6 +79,14 @@ public class Backgrounds extends Interface{
             movingw = true;
         }
 
+    }
+
+    public boolean isMovingh() {
+        return movingh;
+    }
+
+    public void setMovingh(boolean movingh) {
+        this.movingh = movingh;
     }
 
 }

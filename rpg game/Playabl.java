@@ -80,8 +80,18 @@ public class Playabl extends Characters {
     
     public void move(Backgrounds buh){
         blah = buh;
+
+        if (blah.isMovingh()== false){
+            setY(getY()+getDy());
+            if (getY()<=0){
+                setY(0);
+            } else if (getY()+getH()>=Toolkit.getDefaultToolkit().getScreenSize().height){
+                setY(Toolkit.getDefaultToolkit().getScreenSize().height-getH());
+            } 
+
+        }
         
-        setY(getY()+getDy());
+        // setY(getY()+getDy());
     if (blah.isMovingw()== false){
             setX(getX()+getDx());
         if((getX()+getW())>=Toolkit.getDefaultToolkit().getScreenSize().width){
