@@ -10,7 +10,15 @@ public class Playabl extends Characters {
 
     private String playerName, udesc;
     private Backgrounds blah;
-    private boolean movingw;
+    private boolean movingw, movingh;
+
+    public boolean isMovingh() {
+        return movingh;
+    }
+
+    public void setMovingh(boolean movingh) {
+        this.movingh = movingh;
+    }
 
     public Playabl(){
         super();
@@ -87,7 +95,11 @@ public class Playabl extends Characters {
                 setY(0);
             } else if (getY()+getH()>=Toolkit.getDefaultToolkit().getScreenSize().height){
                 setY(Toolkit.getDefaultToolkit().getScreenSize().height-getH());
-            } 
+            } else if (getY() != (Toolkit.getDefaultToolkit().getScreenSize().height/2)-(getH()/2)){
+                movingh = true;
+            } else if (getY() == (Toolkit.getDefaultToolkit().getScreenSize().height/2)-(getH()/2)){
+                movingh = false;
+            }
 
         }
         

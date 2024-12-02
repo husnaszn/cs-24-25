@@ -51,7 +51,13 @@ public class Backgrounds extends Interface{
     public void move(Playabl pla){
          player = pla;
 
-         setY(getY()+getDy());
+         // vertical movement
+         if(player.isMovingh()==false){
+            setY(getY()+getDy());
+            movingh=true;
+         }
+         
+        //  setY(getY()+getDy());
         if(getY()+getH()<=Toolkit.getDefaultToolkit().getScreenSize().height){
             setY(Toolkit.getDefaultToolkit().getScreenSize().height-getH());
             movingh =false;

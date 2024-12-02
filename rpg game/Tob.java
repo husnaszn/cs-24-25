@@ -8,7 +8,7 @@ public class Tob extends Playabl{
     }
 
     public Tob(int x, int y){
-        super("TOB", x,y, 0,0,190,270,130,100, 100, 80,70, new ImageIcon("tobidle.gif"),new ImageIcon("tobidle.gif"),new ImageIcon("tobidle.gif"),new ImageIcon("tobwalkl.gif"),new ImageIcon("tobwalkr.gif"),new ImageIcon("tobwalkd.gif"),new ImageIcon("tobwalku.gif"),new Tuna(x,y));
+        super("TOB", x,y, 0,0,190,270,130,100, 100, 80,70, new ImageIcon("rpg game\\res\\characters\\tob\\tobidle.gif"),new ImageIcon("rpg game\\res\\characters\\tob\\tobidle.gif"),new ImageIcon("rpg game\\res\\characters\\tob\\tobidle.gif"),new ImageIcon("rpg game\\res\\characters\\tob\\tobwalkl.gif"),new ImageIcon("rpg game\\res\\characters\\tob\\tobwalkr.gif"),new ImageIcon("rpg game\\res\\characters\\tob\\tobwalkd.gif"),new ImageIcon("rpg game\\res\\characters\\tob\\tobwalku.gif"),new Tuna(x,y));
         super.getTools().setX(super.getX()+super.getW());
         super.setTools(setList());
         super.setUdesc("A young adventurer. He's friendly. Maybe too friendly.");
