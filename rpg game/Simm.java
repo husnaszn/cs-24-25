@@ -7,7 +7,7 @@ public class Simm extends Playabl{
     }
 
     public Simm(int x, int y){
-        super("SIM", x,y, 0,0,190,270,180,120, 120, 90, 40, new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"),new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new ImageIcon("placeholdercat.gif"), new Tuna(x, y));
+        super("SIM", x,y, 0,0,190,270,180,120, 120, 90, 40, new ImageIcon("rpg game\\res\\characters\\sim\\simidle.gif"),new ImageIcon("rpg game\\res\\characters\\sim\\simidle.gif"),new ImageIcon("rpg game\\res\\characters\\sim\\simidle.gif"), new ImageIcon("rpg game\\res\\characters\\sim\\simwalkl.gif"), new ImageIcon("rpg game\\res\\characters\\sim\\simwalkr.gif"), new ImageIcon("rpg game\\res\\characters\\sim\\simwalkd.gif"), new ImageIcon("rpg game\\res\\characters\\sim\\simwalku.gif"), new Tuna(x, y));
         super.getTools().setX(super.getX()+super.getW());
         super.setTools(setList());
         super.setUdesc("Lively and erratic. A target to many." );
@@ -26,3 +26,5 @@ public class Simm extends Playabl{
         return temp;
     }
 }
+
+// sim walk 4fps
