@@ -1,17 +1,16 @@
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.awt.event.*;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.Scanner;
 import java.io.IOException;
-import java.text.DecimalFormat; 
+import java.util.ArrayList; 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import javax.swing.*;
 
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 
@@ -53,7 +52,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		saveFile = new File("saved_file2.0.txt");
 		words = "";
 		// bg = new Backgrounds("bg", -400, -350, 0, 0, 2840, 1920, new ImageIcon("testbg.png"));
-		bg = new Backgrounds("bg", -400, -350, 0, 0, 2840, 1920, new ImageIcon("C:\\Users\\S1780821\\OneDrive - Houston Independent School District\\cs 24-25\\rpg-game\\rpg game\\testbg.png"));
+		bg = new Backgrounds("bg", -400, -350, 0, 0, 2840, 1920, new ImageIcon("res/backgrounds/testbg.png"));
 
 	}
 
@@ -109,6 +108,8 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		temp.add(new Fish(400, 100));
 		temp.add(new Fish(600, 100));
 		temp.add(new Fish(800, 100));
+		temp.add(new Fish(1000, 100));
+
 		return temp;
 	}
 
@@ -185,8 +186,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 
 	public void drawGameScreen(Graphics g2d) {
 		bg.drawPart(g2d);
-		bg.move(player);
-		player.drawChar(g2d);
+		bg.move(player);		
 		player.move(bg);
 		
 		if (!foodTool.isEmpty()) {
@@ -196,7 +196,12 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		}
 		if (enemies.peek() != null) {
 			enemies.peek().drawChar(g2d);
+
+			for (Enemy e: enemies){
+				e.move(bg);
+			}
 		}
+		player.drawChar(g2d);
 	}
 
 	private void drawScreens(Graphics g2d) {
@@ -294,29 +299,23 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 				enemy = enemies.peek();
 
 				if (enemy != null) {
-					if (player.getX() >= enemy.getX()
-							&& player.getX() <= (enemy.getX() + enemy.getW())) {
-						System.out.println("touching");
+					if (player.enemiesCol(enemy)) {
 						enemies.remove();
 					}
 				}
 
-			// } else if (key == 76) {
-			// 	enemy = enemies.peek();
-
-			// 	enemy.setPic(new ImageIcon("fishattack.gif"));
-			// 	if (player.getX() >= enemy.getX()
-			// 			&& player.getX() <= (enemy.getX() + enemy.getW())) {
-			// 		screen = "gameover";
-			// 	}
 			} else if (key == 87) {
 				player.setPic(player.getUwalku());
 				player.setDy(-1);
 				bg.setDy(1);
+				player.setW(190);
+
 			} else if (key == 83){
 				player.setPic(player.getUwalkd());
 				player.setDy(1);
 				bg.setDy(-1);
+				player.setW(190);
+
 			}
 
 		}
@@ -342,7 +341,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		}
 		if (key == 76) {
 			enemy = enemies.peek();
-			enemy.setPic(new ImageIcon("fishidle.gif"));
+			enemy.setPic(new ImageIcon("rpg game\\res\\characters\\fish\\fishattack.gif"));
 		}
 	}
 

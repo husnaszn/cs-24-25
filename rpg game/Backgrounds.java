@@ -57,7 +57,6 @@ public class Backgrounds extends Interface{
             movingh=true;
          }
          
-        //  setY(getY()+getDy());
         if(getY()+getH()<=Toolkit.getDefaultToolkit().getScreenSize().height){
             setY(Toolkit.getDefaultToolkit().getScreenSize().height-getH());
             movingh =false;

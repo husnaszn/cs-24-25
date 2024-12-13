@@ -11,6 +11,7 @@ public class Playabl extends Characters {
     private String playerName, udesc;
     private Backgrounds blah;
     private boolean movingw, movingh;
+    private Enemy e;
 
     public boolean isMovingh() {
         return movingh;
@@ -25,6 +26,7 @@ public class Playabl extends Characters {
         udesc = "";
         blah = new Backgrounds();
         movingw = false;
+        e = new Enemy();
     }
 
     public Playabl(int x, int y, int dx, int dy, int w, int mhea, int h, int speed, int hea, int dam, int st, ImageIcon pic, ImageIcon uset, ImageIcon uidle, ImageIcon uwalkl, ImageIcon uwalkr, Tools t){
@@ -120,5 +122,12 @@ public class Playabl extends Characters {
     }
 
     }
-    
+  
+    public boolean enemiesCol(Enemy e){
+       if(getX()+getW() >= (e.getX()-10) && getX() <= (e.getX() + e.getW()+10)){
+        return true;
+       }else{
+        return false;
+       }      
+    }
 }

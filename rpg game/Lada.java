@@ -8,7 +8,8 @@ public class Lada extends Playabl {
     }
 
     public Lada(int x, int y){
-        super("LADA", x,y, 400,400,190,270,110, 100, 100, 90, 100, new ImageIcon("rpg game\\res\\characters\\lada\\ladaidle.gif"),new ImageIcon("rpg game\\res\\characters\\lada\\ladaidle.gif"),new ImageIcon("rpg game\\res\\characters\\lada\\ladaidle.gif"), new ImageIcon("rpg game\\res\\characters\\lada\\ladawalkl.gif"), new ImageIcon("rpg game\\res\\characters\\lada\\ladawalkr.gif"), new ImageIcon("rpg game\\res\\characters\\lada\\ladawalkd.gif"), new ImageIcon("rpg game\\res\\characters\\lada\\ladawalku.gif"), new Tuna(x, y));
+        // super("LADA", x,y, 400,400,190,270,110, 100, 100, 90, 100, new ImageIcon("rpg game\\res\\characters\\lada\\ladaidle.gif"),new ImageIcon("rpg game\\res\\characters\\lada\\ladaidle.gif"),new ImageIcon("rpg game\\res\\characters\\lada\\ladaidle.gif"), new ImageIcon("rpg game\\res\\characters\\lada\\ladawalkl.gif"), new ImageIcon("rpg game\\res\\characters\\lada\\ladawalkr.gif"), new ImageIcon("rpg game\\res\\characters\\lada\\ladawalkd.gif"), new ImageIcon("rpg game\\res\\characters\\lada\\ladawalku.gif"), new Tuna(x, y));
+        super("LADA", x,y, 400,400,190,270,110, 100, 100, 90, 100, new ImageIcon("res/characters/lada/ladaidle.gif"),new ImageIcon("res/characters/lada/ladaidle.gif"),new ImageIcon("res/characters/lada/ladaidle.gif"), new ImageIcon("res/characters/lada/ladawalkl.gif"), new ImageIcon("res/characters/lada/ladawalkr.gif"), new ImageIcon("res/characters/lada/ladawalkd.gif"), new ImageIcon("res/characters/lada/ladawalku.gif"), new Tuna(x, y));
         super.getTools().setX(super.getX()+super.getW());
         super.setTools(setList());
         super.setUdesc("She's shy, and patient. Too precious to harm.");
