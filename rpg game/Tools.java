@@ -3,39 +3,23 @@ import javax.swing.ImageIcon;
 
 public class Tools {
     // 
-    int dam, durability, dps, x;
+    int x, y;
     ImageIcon pic;
     public Tools(){
+        x = 0;
+        y = 0;
+        pic = new ImageIcon();
 
     }
-    public Tools(int d, int dur, int dp){
-        dam=d;
-        durability= dur;
-        dps=dp;
+
+
+    public Tools(int x1, int y1, ImageIcon p) {
+        x = x1;
+        y = y1;
+        pic = p;
     }
-    public Tools(int x2, int y, int dam2, int dur, int dp, ImageIcon pic) {
-    }
-    public int getDam() {
-        return dam;
-    }
-    public void setDam(int dam) {
-        this.dam = dam;
-    }
-    public int getX() {
-        return x;
-    }
-    public int getDurability() {
-        return durability;
-    }
-    public void setDurability(int durability) {
-        this.durability = durability;
-    }
-    public int getDps() {
-        return dps;
-    }
-    public void setDps(int dps) {
-        this.dps = dps;
-    }
+
+
     public void setX(int i) {
         x=i;
     }
