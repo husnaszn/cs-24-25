@@ -19,6 +19,12 @@ public class Weapons extends Tools{
         durability = dur;
     }
     
+    public Weapons(int x, int y, int dmg, ImageIcon pic){
+        super(x, y, pic);
+        damage = dmg;
+       
+    }
+    
     public Weapons(int x, int y, int dmg, int dur, ImageIcon pic, WeapUse wu){
         super(x, y, pic);
         damage = dmg;

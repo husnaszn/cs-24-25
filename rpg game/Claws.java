@@ -11,6 +11,6 @@ public class Claws extends Weapons{
     }
 
     public Claws(int x, int y){
-        super(x, y, 10, 10, new ImageIcon());
+        super(x, y, 10, 10, new ImageIcon(), new ClawWu());
     }
 }
