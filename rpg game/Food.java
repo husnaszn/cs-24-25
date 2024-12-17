@@ -16,4 +16,20 @@ public class Food extends Tools{
         heals =heal;
 
     }
+
+    public int getUses() {
+        return uses;
+    }
+
+    public void setUses(int uses) {
+        this.uses = uses;
+    }
+
+    public int getHeals() {
+        return heals;
+    }
+
+    public void setHeals(int heals) {
+        this.heals = heals;
+    }
 }
