@@ -241,8 +241,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	public void attack() {
 
 		if (player.getTools() instanceof Food) {
-			foodTool.add(new Food(player.getX(), player.getY(), player.getTools().getDam(), player.getTools().getDps(),
-					player.getTools().getDurability(), player.getTools().getPic()));
+			// foodTool.add(new Food(player.getX(), player.getY(), player.getTools(), player.getTools(), player.getTools().getPic()));
 		}
 		System.out.println("foodTool is: " + this.foodTool);
 
